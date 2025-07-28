@@ -1,5 +1,5 @@
 :root {
-  --fg-color: rgb(0, 0, 0) !important;
+  --fg-color: rgb(46, 64, 91) !important;
   --fg-color-0: rgba(55, 53, 47, 0.09);
   --fg-color-1: rgba(55, 53, 47, 0.16);
   --fg-color-2: rgba(55, 53, 47, 0.4);
@@ -1989,14 +1989,14 @@ svg + .notion-page-title-text {
   width: unset !important;
 } */
 
-/* pdf预览适配页面 */
+/* pdf 预览适配页面 */
 .react-pdf__Page__canvas,
 .react-pdf__Page__textContent {
   width: 100% !important;
   height: auto !important;
 }
 
-/* simple table设置 */
+/* simple table 设置 */
 table,
 thead,
 tbody {
@@ -2077,13 +2077,13 @@ code.language-mermaid {
   border: 1px solid var(#eee) !important;
 }
 
-/* 视频尺寸bug */
+/* 视频尺寸 bug */
 figure.notion-asset-wrapper.notion-asset-wrapper-video > div {
   height: 100% !important;
   width: 100% !important;
 }
 
-/* 画廊左右边线不展示Bug */
+/* 画廊左右边线不展示 Bug */
 .notion-gallery {
   padding: 0 16px;
 }
