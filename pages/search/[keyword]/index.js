@@ -39,6 +39,14 @@ export async function getStaticProps({ params: { keyword }, locale }) {
   } else if (POST_LIST_STYLE) {
     props.posts = props.posts?.slice(0, POSTS_PER_PAGE)
   }
+
+  // 清理 undefined 值以避免 JSON 序列化错误
+  props.posts = props.posts?.map(post => ({
+    ...post,
+    pageCoverThumbnail: post.pageCoverThumbnail ?? null,
+    href: post.href ?? null
+  }))
+
   props.keyword = keyword
   return {
     props,

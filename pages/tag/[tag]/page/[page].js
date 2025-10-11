@@ -27,6 +27,14 @@ export async function getStaticProps({ params: { tag, page }, locale }) {
   props.tag = tag
   props.page = page
   delete props.allPages
+
+  // 清理 undefined 值以避免 JSON 序列化错误
+  props.posts = props.posts?.map(post => ({
+    ...post,
+    pageCoverThumbnail: post.pageCoverThumbnail ?? null,
+    href: post.href ?? null
+  }))
+
   return {
     props,
     revalidate: process.env.EXPORT

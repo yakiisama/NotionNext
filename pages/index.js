@@ -56,13 +56,13 @@ export async function getStaticProps(req) {
     }
   }
 
-  // 生成robotTxt
+  // 生成 robotTxt
   generateRobotsTxt(props)
-  // 生成Feed订阅
+  // 生成 Feed 订阅
   generateRss(props)
   // 生成
   generateSitemapXml(props)
-  // 检查数据是否需要从algolia删除
+  // 检查数据是否需要从 algolia 删除
   checkDataFromAlgolia(props)
   if (siteConfig('UUID_REDIRECT', false, props?.NOTION_CONFIG)) {
     // 生成重定向 JSON
@@ -72,6 +72,13 @@ export async function getStaticProps(req) {
   // 生成全文索引 - 仅在 yarn build 时执行 && process.env.npm_lifecycle_event === 'build'
 
   delete props.allPages
+
+  // 清理 undefined 值以避免 JSON 序列化错误
+  props.posts = props.posts?.map(post => ({
+    ...post,
+    pageCoverThumbnail: post.pageCoverThumbnail ?? null,
+    href: post.href ?? null
+  }))
 
   return {
     props,

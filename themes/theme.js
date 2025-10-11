@@ -9,7 +9,7 @@ import { getQueryParam, getQueryVariable, isBrowser } from '../lib/utils'
 export const { THEMES = [] } = getConfig()?.publicRuntimeConfig || {}
 
 /**
- * 获取主题配置
+ * 获取主题配置 
  * @param {string} themeQuery - 主题查询参数（支持多个主题用逗号分隔）
  * @returns {Promise<object>} 主题配置对象
  */
