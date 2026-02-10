@@ -125,12 +125,26 @@ const LayoutBase = props => {
 
 /**
  * 博客首页
- * 首页就是列表
+ * 使用归档页的简洁列表样式
  * @param {*} props
  * @returns
  */
 const LayoutIndex = props => {
-  return <LayoutPostList {...props} />
+  const { posts } = props
+  const sortPosts = groupArticlesByYearArray(posts)
+  return (
+    <>
+      <div className='mb-10 pb-20 md:pb-12 p-5 min-h-screen w-full'>
+        {sortPosts.map(p => (
+          <BlogArchiveItem
+            key={p.year}
+            archiveTitle={p.year}
+            archivePosts={p.posts}
+          />
+        ))}
+      </div>
+    </>
+  )
 }
 /**
  * 博客列表
